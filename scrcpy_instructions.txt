@@ -1,0 +1,14 @@
+To control your phone from your desktop using scrcpy, follow the steps below:  
+  
+1. Download scrcpy and extract it to a folder.  
+2. Enable USB Debugging on your phone from Developer options.  
+3. Connect your phone to your computer via USB cable.  
+4. Update the PHONECONTROL.BAT file with the following content:  
+@echo off  
+"C:\Users\unknown\Desktop\MASTER PACK SOFTWARE\scrcpy-win64-v2.5"  
+adb start-server  
+scrcpy --video-bit-rate 8M --max-size 1024  
+  
+5. Double-click the PHONECONTROL.BAT file on your desktop to launch scrcpy.  
+  
+Enjoy controlling your phone from your desktop! 
