@@ -22,6 +22,7 @@ To set up the Phone Control Project, follow these steps:
 \	```bash  
 \	choco install adb scrcpy -y  
 \	```  
+**Note:** The `PHONECONTROL.BAT` script is configured to use the `adb` and `scrcpy` versions bundled within the `Software/` directory. The `setup.bat` script (which uses Chocolatey to install `adb` and `scrcpy` system-wide) is provided as an alternative for users who prefer system-wide installations or to ensure all dependencies are met if issues occur with the bundled versions.
   
 4. **Adjust Settings on Android Device:**  
 - Enable USB Debugging on your Android device in `Settings  Options`.  
@@ -30,11 +31,14 @@ To set up the Phone Control Project, follow these steps:
 - Use a USB cable to connect your device to your computer, and make sure to authorize the connection when prompted on your device.  
   
 ## Usage  
-To run the Phone Control Project, execute the following command in the command prompt:  
+To run the Phone Control Project, simply execute `PHONECONTROL.BAT` from the project's root directory:
 \	```bash  
-\	C:\Users\unknown\Desktop\PHONE-CONTROL-PROJECT\PHONECONTROL.BAT  
+\	PHONECONTROL.BAT
 \	```  
-This will start the scrcpy application with the defined settings.  
+Ensure you are in the project's root directory when running this command.
+
+### How it Works
+The `PHONECONTROL.BAT` script is specifically configured to use the `adb.exe` and `scrcpy.exe` versions located within the `Software/` subdirectory of this project. This approach ensures that the project is portable and self-contained, meaning it does not rely on system-wide installations of ADB or scrcpy and won't interfere with other versions you might have installed.
   
 ## Prerequisites  
 - Windows OS  
@@ -52,4 +56,4 @@ Always fetch the latest updates from the repository:
 If you would like to contribute, feel free to submit a Pull Request with your changes!  
   
 ## License  
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
