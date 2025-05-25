@@ -1,14 +1,22 @@
-To control your phone from your desktop using scrcpy, follow the steps below:  
-  
-1. Download scrcpy and extract it to a folder.  
-2. Enable USB Debugging on your phone from Developer options.  
-3. Connect your phone to your computer via USB cable.  
-4. Update the PHONECONTROL.BAT file with the following content:  
-@echo off  
-"C:\Users\unknown\Desktop\MASTER PACK SOFTWARE\scrcpy-win64-v2.5"  
-adb start-server  
-scrcpy --video-bit-rate 8M --max-size 1024  
-  
-5. Double-click the PHONECONTROL.BAT file on your desktop to launch scrcpy.  
-  
-Enjoy controlling your phone from your desktop! 
+Quick steps to control your Android device using this project:
+
+1.  **Prerequisites:**
+    *   Ensure you have cloned or downloaded this project repository.
+    *   The necessary `adb` and `scrcpy` tools are included in the `Software/` directory.
+    *   (Optional) You can run `setup.bat` if you prefer to install `adb` and `scrcpy` system-wide using Chocolatey.
+
+2.  **Enable USB Debugging:**
+    *   On your Android device, go to `Settings` > `About phone`.
+    *   Tap on `Build number` repeatedly (usually 7 times) until Developer Options are enabled.
+    *   Go to `Settings` > `System` > `Developer options` (or similar).
+    *   Enable `USB debugging`.
+
+3.  **Connect Your Device:**
+    *   Connect your Android device to your computer using a USB cable.
+    *   Authorize the USB debugging connection on your device when prompted.
+
+4.  **Run the Control Script:**
+    *   Navigate to the root directory of this project in your command prompt or file explorer.
+    *   Execute the `PHONECONTROL.BAT` script.
+
+This will start screen mirroring and control. Enjoy!
