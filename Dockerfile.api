@@ -1,0 +1,47 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    unzip \
+    android-tools-adb \
+    android-tools-fastboot \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install scrcpy
+RUN wget https://github.com/Genymobile/scrcpy/releases/download/v2.0/scrcpy-linux-v2.0.tar.gz \
+    && tar -xzf scrcpy-linux-v2.0.tar.gz \
+    && mv scrcpy-linux-v2.0 /opt/scrcpy \
+    && ln -s /opt/scrcpy/scrcpy /usr/local/bin/scrcpy \
+    && rm scrcpy-linux-v2.0.tar.gz
+
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source code
+COPY src/api/ ./src/api/
+COPY Software/ ./Software/
+
+# Create non-root user
+RUN groupadd -r phonecontrol && useradd -r -g phonecontrol phonecontrol
+
+# Create necessary directories
+RUN mkdir -p /app/uploads /app/downloads /app/logs \
+    && chown -R phonecontrol:phonecontrol /app
+
+# Switch to non-root user for security
+USER phonecontrol
+
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/api/health || exit 1
+
+# Start application
+CMD ["python", "-m", "uvicorn", "src.api.device_manager:app", "--host", "0.0.0.0", "--port", "8000"]
