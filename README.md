@@ -1,3 +1,5 @@
+![Banner](banner.png)
+
 # Phone Control Project 2.0 🚀
 
 Advanced Android device control with modern web interface, wireless connectivity, and comprehensive automation features.
