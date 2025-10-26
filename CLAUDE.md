@@ -857,3 +857,8 @@ scrcpy --record screen.mp4
 *Last Updated: 2024-10*
 *System: Phone Control Project v2.0*
 *Built with ❤️ by JTG Systems*
+
+## Framework Versions
+
+- **FastAPI**: 0.104.1
+
