@@ -6,6 +6,6 @@ adb-shell==0.4.4
 pure-python-adb==0.3.0.dev0
 opencv-python==4.8.1.78
 numpy==1.25.2
-pillow==10.1.0
-requests==2.31.0
-python-multipart==0.0.6
+pillow==10.3.0
+requests==2.32.4
+python-multipart==0.0.18
