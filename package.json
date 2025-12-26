@@ -23,7 +23,7 @@
     "socket.io": "^4.8.3",
     "multer": "^2.0.2",
     "ws": "^8.18.3",
-    "node-adb": "^0.2.4",
+    "node-adb": "^0.1.6",
     "electron": "^39.2.7"
   },
   "devDependencies": {
