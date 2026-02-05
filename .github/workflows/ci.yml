@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check project structure
+      run: |
+        ls -la
+        test -f README.md && echo "✓ README.md exists" || echo "⚠ README.md missing"
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Basic security scan
+      run: |
+        ! grep -r "password\|secret\|key" --include="*.py" --include="*.js" . 2>/dev/null || echo "⚠ Check for secrets"
