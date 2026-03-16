@@ -21,14 +21,14 @@
   "dependencies": {
     "express": "^5.2.1",
     "socket.io": "^4.8.3",
-    "multer": "^2.0.2",
-    "ws": "^8.18.3",
+    "multer": "^2.1.1",
+    "ws": "^8.19.0",
     "node-adb": "^0.1.6",
-    "electron": "^39.2.7"
+    "electron": "^41.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.11",
-    "webpack": "^5.104.1",
-    "jest": "^30.2.0"
+    "nodemon": "^3.1.14",
+    "webpack": "^5.105.4",
+    "jest": "^30.3.0"
   }
 }
