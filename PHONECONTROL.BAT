@@ -1,22 +1,34 @@
 @echo off
-:: Remember to check for updates on scrcpy if you encounter issues.
+setlocal enabledelayedexpansion
+title JTG Systems - Phone Control & Screen Mirroring
+
 cd /d "%~dp0"
 
-echo Starting ADB server...
-Software\adb.exe start-server
+echo =========================================================
+echo    JTG Systems - Android Phone Control Center (2026)
+echo                 https://jtgsystems.com
+echo =========================================================
+
+echo Checking ADB and connected devices...
+Software\adb.exe start-server >nul 2>&1
 if %ERRORLEVEL% neq 0 (
-    echo Error: Failed to start ADB server. Ensure ADB is correctly placed in the Software folder and no other ADB instance is conflicting.
-    pause
-    exit /b %ERRORLEVEL%
+    echo [!] Starting local ADB...
+    adb start-server >nul 2>&1
 )
 
-echo Starting scrcpy...
-Software\scrcpy.exe --video-bit-rate 8M --max-size 1080 --render-driver opengl --stay-awake --show-touch
+Software\adb.exe devices -l
+
+echo.
+echo Launching High-Definition 60 FPS Screen Mirror...
+Software\scrcpy.exe --video-bit-rate 16M --max-size 1920 --max-fps 60 --stay-awake --show-touches --render-driver opengl
+
 if %ERRORLEVEL% neq 0 (
-    echo Error: Failed to start scrcpy. Ensure scrcpy is correctly placed in the Software folder and your device is connected and authorized.
-    pause
-    exit /b %ERRORLEVEL%
+    echo.
+    echo [!] If mirroring failed, make sure:
+    echo     1. Phone is connected via USB
+    echo     2. USB Debugging is turned ON in Developer Options
+    echo     3. You tapped 'Allow USB Debugging' on your phone screen
 )
 
-echo scrcpy closed.
+echo.
 pause

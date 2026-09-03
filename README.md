@@ -1,280 +1,84 @@
-![Banner](banner.png)
+# 📱 Phone Control Project (v2.5 SOTA 2026)
 
-# Phone Control Project 2.0 🚀
+<div align="center">
 
-Advanced Android device control with modern web interface, wireless connectivity, and comprehensive automation features.
+![Phone Control Banner](banner.png)
 
-## ✨ Features
+**Cross-Platform Android Remote Control, Low-Latency Screen Mirroring & Wireless ADB Manager**
 
-### 🔥 New in v2.0
-- **Modern Web Interface** - Beautiful, responsive UI with real-time controls
-- **Wireless ADB Connection** - Connect devices over WiFi without USB cables
-- **Cross-Platform Support** - Works on Windows, macOS, and Linux
-- **Advanced Automation** - Batch operations, performance monitoring, and scripting
-- **Electron Desktop App** - Native desktop experience with system integration
-- **Docker Support** - Easy deployment with containerization
-- **Python API** - FastAPI backend with comprehensive device management
-- **File Transfer** - Drag-and-drop file transfers between device and computer
-- **Screen Recording** - Built-in screen recording with customizable settings
+[![License: MIT](https://img.shields.io/badge/License-MIT-cyan.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-purple.svg)]()
+[![Core Engine](https://img.shields.io/badge/Engine-scrcpy%20%7C%20ADB%20FastAPI-blue.svg)](https://github.com/Genymobile/scrcpy)
+[![Created By](https://img.shields.io/badge/Created%20By-JTG%20Systems-gold.svg)](https://jtgsystems.com)
 
-### 📱 Core Features
-- Real-time device discovery and management
-- High-quality screen mirroring with scrcpy
-- Remote shell access and command execution
-- APK installation and management
-- Device backup and restore
-- Performance monitoring and optimization
-- Network speed testing
-- Automated app testing
+*Mirror, control, automate, and manage Android smartphones and tablets with ultra-low latency, 60 FPS video, audio forwarding, and one-click wireless WiFi debugging.*
 
-## 🚀 Quick Start
-
-### Prerequisites
-- Node.js 18+ 
-- Python 3.8+
-- Android device with USB debugging enabled
-
-### Installation
-
-#### Option 1: Traditional Setup
-```bash
-# Clone the repository
-git clone https://github.com/jtgsystems/Phone-Control-Project.git
-cd Phone-Control-Project
-
-# Install Node.js dependencies
-npm install
-
-# Install Python dependencies
-pip install -r requirements.txt
-
-# Start the application
-npm start
-```
-
-#### Option 2: Docker Setup
-```bash
-# Clone and start with Docker
-git clone https://github.com/jtgsystems/Phone-Control-Project.git
-cd Phone-Control-Project
-
-# Start all services
-docker-compose up -d
-
-# Access the web interface
-open http://localhost:3000
-```
-
-#### Option 3: Electron Desktop App
-```bash
-# Install and start Electron app
-npm install
-npm run electron
-```
-
-## 📖 Usage Guide
-
-### 1. Connect Your Device
-
-#### USB Connection
-1. Enable Developer Options on your Android device
-2. Enable USB Debugging in Developer Options
-3. Connect device via USB cable
-4. Authorize the connection when prompted
-
-#### WiFi Connection
-1. First connect via USB to enable WiFi debugging
-2. Click "Enable WiFi" button for your device
-3. Note your device's IP address
-4. Click "WiFi Connect" and enter the IP address
-5. Disconnect USB cable - you're now wireless!
-
-### 2. Screen Mirroring
-- Click "Start Mirror" to begin screen mirroring
-- Use keyboard shortcuts for common actions
-- Customize video quality in settings
-
-### 3. File Transfer
-- Click "Transfer Files" to upload/download files
-- Drag and drop files directly onto the interface
-- Monitor transfer progress in real-time
-
-### 4. Remote Shell
-- Click "ADB Shell" to open command interface
-- Execute any ADB command directly
-- View command history and output
-
-## 🔧 Advanced Features
-
-### Automation Scripts
-```javascript
-// Example: Batch install APKs
-const automation = new DeviceAutomation(deviceController);
-const results = await automation.batchInstallApks(deviceId, [
-    '/path/to/app1.apk',
-    '/path/to/app2.apk'
-]);
-```
-
-### Performance Monitoring
-```javascript
-// Monitor device performance for 60 seconds
-const metrics = await automation.monitorPerformance(deviceId, 60000);
-console.log('CPU Usage:', metrics.summary.cpu.avg);
-```
-
-### Custom Automation
-```javascript
-// Automated app testing
-const testActions = [
-    { type: 'tap', x: 500, y: 1000 },
-    { type: 'swipe', x1: 300, y1: 800, x2: 300, y2: 400 },
-    { type: 'text', text: 'Hello World' }
-];
-await automation.testApp(deviceId, 'com.example.app', testActions);
-```
-
-## 🏗️ Architecture
-
-```
-Phone-Control-Project/
-├── src/
-│   ├── api/           # Python FastAPI backend
-│   ├── ui/            # Web interface (HTML/CSS/JS)
-│   ├── core/          # Core device management
-│   └── utils/         # Automation utilities
-├── Software/          # Bundled ADB and scrcpy
-├── electron-main.js   # Electron desktop app
-└── docker-compose.yml # Docker deployment
-```
-
-## 🔌 API Endpoints
-
-### Device Management
-- `GET /api/devices` - List connected devices
-- `POST /api/connect-wifi` - Connect via WiFi
-- `POST /api/enable-wifi/{device_id}` - Enable WiFi debugging
-
-### Screen Control
-- `POST /api/scrcpy/start` - Start screen mirroring
-- `POST /api/scrcpy/stop` - Stop screen mirroring
-- `POST /api/screenshot/{device_id}` - Take screenshot
-
-### File Operations
-- `POST /api/upload/{device_id}` - Upload file to device
-- `POST /api/download/{device_id}` - Download from device
-
-### Automation
-- `POST /api/shell-command` - Execute shell command
-- `POST /api/install-apk` - Install APK file
-- `POST /api/backup` - Backup device data
-
-## ⚙️ Configuration
-
-### Environment Variables
-```bash
-# Web Server
-PORT=3000
-NODE_ENV=production
-
-# API Server
-API_HOST=0.0.0.0
-API_PORT=8000
-PYTHONPATH=/app
-
-# Database
-REDIS_URL=redis://localhost:6379
-```
-
-### Scrcpy Options
-```json
-{
-  "bitrate": "8M",
-  "maxSize": "1080",
-  "renderer": "opengl",
-  "stayAwake": true,
-  "showTouches": true
-}
-```
-
-## 🚀 Performance Optimizations
-
-- **Concurrent Operations** - Multiple devices handled simultaneously
-- **Efficient Streaming** - Optimized video compression and transmission
-- **Memory Management** - Smart resource cleanup and monitoring
-- **Network Optimization** - Adaptive bitrate and connection pooling
-
-## 🔒 Security Features
-
-- Input validation and sanitization
-- Secure file upload handling
-- Process isolation and sandboxing
-- Authentication and authorization support
-- Certificate validation for HTTPS
-
-## 📱 Supported Platforms
-
-- **Windows** 10/11
-- **macOS** 10.15+
-- **Linux** Ubuntu 18.04+
-- **Android** 5.0+ (API level 21+)
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Commit changes: `git commit -m 'Add feature description'`
-5. Push to branch: `git push origin feature-name`
-6. Create a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Troubleshooting
-
-### Common Issues
-
-**Device not detected:**
-- Ensure USB debugging is enabled
-- Try different USB cable/port
-- Install device drivers (Windows)
-
-**Connection timeout:**
-- Check firewall settings
-- Verify IP address is correct
-- Ensure device and computer are on same network
-
-**Screen mirroring laggy:**
-- Reduce video bitrate in settings
-- Lower maximum resolution
-- Check network bandwidth
-
-### Getting Help
-
-- 📚 [Documentation](https://github.com/jtgsystems/Phone-Control-Project/wiki)
-- 🐛 [Report Issues](https://github.com/jtgsystems/Phone-Control-Project/issues)
-- 💬 [Discussions](https://github.com/jtgsystems/Phone-Control-Project/discussions)
-
-## 🎯 Roadmap
-
-- [ ] iOS device support
-- [ ] Cloud deployment options
-- [ ] Machine learning automation
-- [ ] Plugin system for extensions
-- [ ] Multi-language support
-- [ ] Advanced scripting interface
+</div>
 
 ---
 
-**Built with ❤️ by JTG Systems**
+## ✨ Features
 
-*Empowering developers with advanced Android device control*
+- 🎮 **Ultra Low-Latency Screen Mirroring**: 60 FPS 1080p/4K display mirroring powered by hardware-accelerated OpenGL and `scrcpy`.
+- 📶 **One-Click Wireless ADB over WiFi**: Automatically switch USB-connected devices to wireless TCP/IP mode (`phone-control wireless`) and unplug the cable.
+- ⌨️ **Full Keyboard & Mouse Control**: Type with your computer keyboard, copy-paste clipboard synchronization, and control the screen with precision mouse clicks and gestures.
+- 🔊 **Direct Audio Forwarding**: Stream phone audio directly through your computer speakers or surround soundstage without extra cables.
+- 📦 **Cross-Platform CLI & Launchers**:
+  - **Linux & macOS**: Zero-dependency `phone-control.sh` script or global Python CLI (`pip install -e .`).
+  - **Windows**: Fast `PHONECONTROL.BAT` with bundled ADB and scrcpy binaries.
+  - **Web & Electron UI**: Modern web dashboard and Electron desktop app in `src/`.
 
-### SEO Keyword Cloud
+---
 
-`android` `adb` `phone` `control` `automation` `remote` `management` `scrcpy` `mirroring` `streaming` `wifi` `wireless` `usb` `debugging` `fastapi` `electron` `docker` `nodejs` `react` `api` `dashboard` `monitoring` `scripting` `testing` `qa` `deployment` `crossplatform` `performance` `optimization` `screenshots` `recording` `filetransfer` `backup` `restore` `shell` `commands` `telemetry` `notifications` `orchestration` `multi-device` `analytics` `productivity` `troubleshooting` `devops` `enterprise` `support` `integration` `workflow` `roadmap`
+## 🚀 Quick Start & Installation
+
+### Option 1: Global CLI / Python (Linux, macOS, Windows)
+```bash
+git clone https://github.com/jtgsystems/Phone-Control-Project.git
+cd Phone-Control-Project
+pip install -e .
+
+# Launch Screen Mirroring:
+phone-control mirror
+# or short alias:
+pcp mirror
+```
+
+### Option 2: Linux & macOS Native Script
+```bash
+./phone-control.sh
+```
+
+### Option 3: Windows One-Click
+Double-click **`PHONECONTROL.BAT`** in the project folder.
+
+---
+
+## 📖 CLI Commands
+
+```bash
+# List all connected Android devices (USB and WiFi)
+phone-control devices
+
+# Launch high-performance screen mirror
+phone-control mirror
+
+# Switch current USB device to Wireless WiFi mode (then unplug USB cable!)
+phone-control wireless
+
+# Connect to a phone's IP address directly over WiFi
+phone-control connect 192.168.1.50
+```
+
+---
+
+## 📱 How to Enable USB Debugging on Android
+
+1. Open **Settings** > **About Phone**.
+2. Tap **Build Number** 7 times until Developer Mode is unlocked.
+3. Go to **Settings** > **System** > **Developer Options**.
+4. Enable **USB Debugging** (and **Wireless Debugging** if on Android 11+).
+5. Plug phone into PC and tap **"Always Allow from this Computer"** when prompted.
 
 ---
 
@@ -295,3 +99,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 </div>
 
+---
+
+## 🔍 SEO Keyword Cloud & Search Tags
+
+<details>
+<summary><strong>Expand Search Engine Index & Compatibility Keywords</strong></summary>
+
+### 🏷️ Search Queries & Tags:
+`android phone control from pc` · `screen mirror android to linux` · `scrcpy wireless adb setup` · `control android phone with keyboard and mouse` · `android screen mirroring 60fps windows` · `wireless phone control wifi adb` · `stream android audio to pc` · `jtgsystems phone control project` · `free open source scrcpy gui` · `remote android management toolkit`
+
+</details>
+
+---
+
+## 📜 License
+
+MIT License © 2026 [JTG Systems](https://jtgsystems.com).

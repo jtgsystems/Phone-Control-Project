@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phone-control-project"
+version = "2.5.0"
+description = "Cross-Platform Android Phone Control, Wireless Screen Mirroring & Device Automation"
+readme = "README.md"
+authors = [{ name = "JTG Systems", email = "jtgsystems@gmail.com" }]
+license = { text = "MIT" }
+keywords = [
+    "android", "scrcpy", "adb", "screen-mirroring", "phone-control",
+    "wireless-adb", "automation", "jtgsystems"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3"
+]
+
+[project.urls]
+Homepage = "https://jtgsystems.com"
+Repository = "https://github.com/jtgsystems/Phone-Control-Project"
+
+[project.scripts]
+phone-control = "phone_control.cli:main"
+pcp = "phone_control.cli:main"
