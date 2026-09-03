@@ -275,3 +275,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### SEO Keyword Cloud
 
 `android` `adb` `phone` `control` `automation` `remote` `management` `scrcpy` `mirroring` `streaming` `wifi` `wireless` `usb` `debugging` `fastapi` `electron` `docker` `nodejs` `react` `api` `dashboard` `monitoring` `scripting` `testing` `qa` `deployment` `crossplatform` `performance` `optimization` `screenshots` `recording` `filetransfer` `backup` `restore` `shell` `commands` `telemetry` `notifications` `orchestration` `multi-device` `analytics` `productivity` `troubleshooting` `devops` `enterprise` `support` `integration` `workflow` `roadmap`
+
+---
+
+## 🏆 Created by JTG Systems
+
+<div align="center">
+
+<a href="https://jtgsystems.com">
+  <img src="https://raw.githubusercontent.com/jtgsystems/.github/main/assets/jtgsystems-attribution-banner.jpg" alt="JTG Systems - Support & Sponsorship" width="750"/>
+</a>
+
+**Engineered with pride by [JTG Systems](https://jtgsystems.com)**  
+*Enterprise Systems Architecture, Custom Workstations & AI Solutions*
+
+🌐 **Website**: [jtgsystems.com](https://jtgsystems.com)  
+📞 **Contact**: (905) 892-4555  
+☕ **Tips & Sponsorship**: `jtgsystems@gmail.com`
+
+</div>
+
