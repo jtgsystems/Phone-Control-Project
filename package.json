@@ -27,7 +27,7 @@
   "dependencies": {
     "electron": "^44.1.1",
     "express": "^5.2.1",
-    "multer": "^2.2.0",
+    "multer": "^2.3.0",
     "node-adb": "^0.1.6",
     "socket.io": "^4.8.3",
     "ws": "^8.18.3"
